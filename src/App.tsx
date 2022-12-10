@@ -1,5 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-export const App = () => {
-    return <h1>App</h1>;
+export function App() {
+  return <h1>App</h1>;
 }
