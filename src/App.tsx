@@ -1,5 +1,10 @@
 import React from 'react';
+import Login from './Login';
+import Profile from './Profile';
 
 export default function App() {
-  return <h1>App</h1>;
+  return <>
+  <Profile />
+  <Login />
+  </>;
 }
