@@ -1,3 +1,5 @@
+const { join } = require('path');
+
 const prod = process.env.NODE_ENV === 'production';
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -32,4 +34,25 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
   ],
+  devServer: {
+    static: {
+      directory: join(__dirname, './src/assets'),
+    },
+    hot: true,
+    port: 3030,
+    host: 'localhost',
+    // host: '0.0.0.0', // if you want to check app by ip on other devices
+    historyApiFallback: true,
+    // proxy: {
+    //   '/api/v2': {
+    //     target: process.env.PROXY__API_URI,
+    //     logLevel: 'debug',
+    //     changeOrigin: true,
+    //     secure: false,
+    //     headers: {
+    //       Connection: 'keep-alive',
+    //     },
+    //   },
+    // },
+  },
 };
