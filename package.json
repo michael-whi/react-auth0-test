@@ -4,7 +4,7 @@
   "description": "Test authentication with auth0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --port 3000",
+    "start": "webpack serve",
     "build": "NODE_ENV=production webpack",
     "lint": "eslint src/**/*.tsx"
   },
@@ -20,6 +20,8 @@
   "homepage": "https://github.com/michael-whi/react-auth0-test#readme",
   "dependencies": {
     "@auth0/auth0-react": "^2.0.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "dotenv": "^16.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.3.4",

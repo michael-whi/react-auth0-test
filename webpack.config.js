@@ -1,16 +1,34 @@
-const { join } = require('path');
+require('dotenv').config();
 
-const prod = process.env.NODE_ENV === 'production';
-
+const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { join, resolve } = require('path');
+
+const SRC_DIR = resolve(__dirname, './src');
+
+const environment = process.env.NODE_ENV || 'development';
+const development = environment === 'development';
 
 module.exports = {
-  mode: prod ? 'production' : 'development',
+  cache: true,
+  mode: environment,
+  devtool: development ? 'eval-cheap-module-source-map' : 'source-map',
+
   entry: './src/index.tsx',
   output: {
     path: `${__dirname}/dist/`,
   },
+
+  resolve: {
+    alias: {
+      '@': join(__dirname, 'src'),
+    },
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    modules: [SRC_DIR, 'node_modules'],
+  },
+
   module: {
     rules: [
       {
@@ -27,12 +45,19 @@ module.exports = {
       },
     ],
   },
-  devtool: prod ? undefined : 'source-map',
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
     new MiniCssExtractPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(environment),
+      'process.env.AUTH0_DOMAIN': JSON.stringify(process.env.AUTH0_DOMAIN),
+      'process.env.AUTH0_CLIENT_ID': JSON.stringify(process.env.AUTH0_CLIENT_ID),
+      'process.env.AUTH0_AUDIENCE': JSON.stringify(process.env.AUTH0_AUDIENCE),
+      'process.env.SERVER_URI': JSON.stringify(process.env.SERVER_URI),
+    }),
   ],
   devServer: {
     static: {
@@ -41,7 +66,6 @@ module.exports = {
     hot: true,
     port: 3030,
     host: 'localhost',
-    // host: '0.0.0.0', // if you want to check app by ip on other devices
     historyApiFallback: true,
     // proxy: {
     //   '/api/v2': {
