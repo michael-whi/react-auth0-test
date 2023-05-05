@@ -9,13 +9,14 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks", "es", "sort-keys-fix"],
   "rules": {
     "prettier/prettier": "warn",
     "linebreak-style": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
-    "camelcase": "off"
+    "camelcase": "off",
+    "lines-between-class-members": ["error", "always"]
   },
   "settings": {
     "import/resolver": {
@@ -23,5 +24,5 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
-  },
+  }
 }
