@@ -1,10 +1,10 @@
-import { Navbar } from '@/entities/navbar';
 import React from 'react';
+import { Navbar } from '@/entities/navbar';
 import { AppRoutes } from './routes';
 
 export default function App() {
   return (
-    <div className='app'>
+    <div className="app">
       <header>
         <Navbar />
       </header>
@@ -15,5 +15,5 @@ export default function App() {
         <p>&copy; 2021. Not all rights reserved.</p>
       </footer>
     </div>
-  )
+  );
 }

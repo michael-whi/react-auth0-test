@@ -3,8 +3,6 @@ import React from 'react';
 import { TChildren } from '@/shared/types';
 
 export const Auth0ProviderWithNavigate = ({ children }: TChildren) => {
-  console.log("=================", process.env.AUTH0_DOMAIN);
-  console.log("=================", process.env.AUTH0_CLIENT_ID);
   return (
     <Auth0Provider
       domain={process.env.AUTH0_DOMAIN!}
