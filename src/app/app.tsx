@@ -4,7 +4,7 @@ import { AppRoutes } from './routes';
 
 export default function App() {
   return (
-    <div className="app">
+    <div>
       <header>
         <Navbar />
       </header>

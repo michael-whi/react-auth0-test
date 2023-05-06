@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SLinkList = styled.ul`
-  display: flex;
+  display: inline-flex;
   list-style-type: none;
 `;
 
