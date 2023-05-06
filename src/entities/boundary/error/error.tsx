@@ -1,12 +1,12 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Error = ({ error }: { error: any }) => {
-  const { pathname } = useLocation()
-  const navigate = useNavigate()
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
-    <div className='error'>
+    <div className="error">
       <h2>Error</h2>
       <p>
         Location: <span>{pathname}</span>
@@ -22,5 +22,5 @@ export const Error = ({ error }: { error: any }) => {
         <button onClick={() => window.location.reload()}>Reload</button>
       </div>
     </div>
-  )
-}
+  );
+};

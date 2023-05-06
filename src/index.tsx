@@ -17,4 +17,4 @@ root.render(
       </Auth0ProviderWithNavigate>
     </BrowserRouter>
   </React.StrictMode>
-)
+);

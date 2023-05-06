@@ -5,10 +5,10 @@ import { Spinner } from '@/shared/components/spinner';
 import React from 'react';
 
 export const Boundary = ({ children }: TChildren) => {
-  const { loading, error } = useAppStore()
+  const { loading, error } = useAppStore();
 
-  if (loading) return <Spinner />
-  if (error) return <Error error={error} />
+  if (loading) return <Spinner />;
+  if (error) return <Error error={error} />;
 
-  return <div>{children}</div>
-}
+  return <div>{children}</div>;
+};

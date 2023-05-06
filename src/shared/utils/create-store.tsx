@@ -11,10 +11,10 @@ const createSetters = (
   setters: TInitialSetters,
   setState: React.Dispatch<(prevState: TState) => TState>
 ) => {
-  const _setters = {} as TProxySetters;
+  const proxySetters = {} as TProxySetters;
 
   for (const key in setters) {
-    _setters[key] = (...args) => {
+    proxySetters[key] = (...args) => {
       setState((state) => {
         const newState = setters[key](state, ...args);
 
@@ -23,7 +23,7 @@ const createSetters = (
     };
   }
 
-  return _setters;
+  return proxySetters;
 };
 
 export function createStore(store: TStore) {

@@ -26,7 +26,11 @@
     "lines-between-class-members": ["error", "always"],
     "import/extensions": "off",
     "import/prefer-default-export": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "comma-dangle": ["error", { "functions": "ignore", "import": "ignore" }],
+    "object-curly-newline": "off",
+    "no-restricted-syntax": "off",
+    "guard-for-in": "off"
   },
   "settings": {
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],

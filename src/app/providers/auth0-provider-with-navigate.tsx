@@ -8,10 +8,10 @@ export const Auth0ProviderWithNavigate = ({ children }: TChildren) => {
       domain={process.env.AUTH0_DOMAIN!}
       clientId={process.env.AUTH0_CLIENT_ID!}
       authorizationParams={{
-      redirect_uri: window.location.origin,
+        redirect_uri: window.location.origin,
       }}
     >
       {children}
     </Auth0Provider>
- )
-}
+  );
+};
