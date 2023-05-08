@@ -12,4 +12,5 @@ export const SButton = styled.button`
   color: white;
   box-shadow: 1px 1px 4px #b2b1b1;
   margin-right: 8px;
+  cursor: pointer;
 `;
